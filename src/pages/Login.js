@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { createUser } from '../services/userAPI';
-import Loading from './Loading';
+import Loading from '../components/Loading';
 
 class Login extends React.Component {
   state = {
@@ -76,12 +76,5 @@ class Login extends React.Component {
 Login.propTypes = {
   history: PropTypes.func.isRequired,
 };
-
-// Login.propTypes = {
-// userName: PropTypes.string.isRequired,
-// isSaveButtonDisabled: PropTypes.func.isRequired,
-// onSaveButtonCLick: PropTypes.func.isRequired,
-// onInputChange: PropTypes.func.isRequired,
-// };
 
 export default Login;
