@@ -1,7 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import { useHistory } from 'react-router-dom';
-// import { Redirect, Route, Switch } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Loading from './Loading';
 import { getUser } from '../services/userAPI';
@@ -20,29 +17,6 @@ class Header extends React.Component {
     });
     this.setState({ isLoading: false });
   }
-
-  // searchButton = () => {
-  // const history = useHistory();
-
-  // handleClick = () => {
-  // history.push('/search');
-  // };
-  // return (
-  // <button type="button" onClick={ handleClick }>
-  // Pesquisar
-  // </button>
-  // );
-  // };
-
-  // handleRedirect = () => {
-  // const { history } = this.props;
-  // history.push('./search');
-  // };
-
-  // search = () => {
-  // const history = useHistory();
-  // history.push('./search');
-  // };
 
   render() {
     const { user, isLoading } = this.state;
