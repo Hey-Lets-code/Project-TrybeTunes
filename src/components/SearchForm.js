@@ -27,7 +27,7 @@ class SearchForm extends React.Component {
       backupInput: searchInput,
     });
     const artistAlbum = await searchAlbumsAPI(searchInput);
-    // console.log(artistAlbum);
+    console.log(artistAlbum);
     this.setState({
       searchInput: '',
       data: artistAlbum,
