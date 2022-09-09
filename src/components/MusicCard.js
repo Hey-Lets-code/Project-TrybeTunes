@@ -7,7 +7,7 @@ class MusicCard extends React.Component {
   state = {
     checked: false,
     isLoading: false,
-  };
+  }; // teste
 
   async componentDidMount() {
     const { trackId } = this.props;
