@@ -1,7 +1,6 @@
 import React from 'react';
 import { string, shape } from 'prop-types';
 import Header from '../components/Header';
-// import AlbumList from '../components/AlbumList';
 import MusicCard from '../components/MusicCard';
 import getMusic from '../services/musicsAPI';
 
@@ -15,13 +14,13 @@ class Album extends React.Component {
   async componentDidMount() { // id não é padrão, match e params são padrão do this.props;
     const { match: { params: { id } } } = this.props;
     const musics = await this.listMusics(id);
-    console.log(await musics);
+    console.log(musics);
   }
 
   listMusics = async (id) => {
-    const listMusic = await getMusic(id); // quando tem o_ na frente do parametro ele ignora
-    const captureListMusic = await listMusic[0];
-    const filterMusic = await listMusic.filter((_element, index) => index > 0);
+    const listMusic = await getMusic(id); // quando tem o _ na frente do parametro ele ignora o parâmetro
+    const captureListMusic = listMusic[0];
+    const filterMusic = listMusic.filter((_element, index) => index > 0);
     this.setState({
       data: filterMusic,
       artistName: captureListMusic.artistName,
@@ -31,27 +30,26 @@ class Album extends React.Component {
   };
 
   render() {
-    const { data, artistName, collectionName } = this.state;
+    const { data,
+      artistName,
+      collectionName } = this.state;
     return (
       <>
         <Header />
         <div data-testid="page-album">
           <h1>Album</h1>
           <div>
-            <h2 data-testid="artist-name">
+            <h3 data-testid="artist-name">
               {artistName}
-            </h2>
-            <h2 data-testid="album-name">
+            </h3>
+            <h3 data-testid="album-name">
               {collectionName}
-            </h2>
-            {/* <AlbumList */}
-            {/* nomeDoArtista={ artistName } */}
-            {/* nomeDoAlbum={ collectionName } */}
-            {/* /> */}
+            </h3>
             {data.map((music) => (<MusicCard
               key={ music.trackId }
               trackName={ music.trackName }
               previewUrl={ music.previewUrl }
+              trackId={ music.trackId }
             />))}
           </div>
         </div>
