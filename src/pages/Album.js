@@ -2,7 +2,7 @@ import React from 'react';
 import { string, shape } from 'prop-types';
 import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
-import getMusic from '../services/musicsAPI';
+import getMusics from '../services/musicsAPI';
 
 class Album extends React.Component {
   state = {
@@ -18,7 +18,7 @@ class Album extends React.Component {
   }
 
   listMusics = async (id) => {
-    const listMusic = await getMusic(id); // quando tem o _ na frente do parametro ele ignora o parâmetro
+    const listMusic = await getMusics(id); // quando tem o _ na frente do parametro ele ignora o parâmetro
     const captureListMusic = listMusic[0];
     const filterMusic = listMusic.filter((_element, index) => index > 0);
     this.setState({
